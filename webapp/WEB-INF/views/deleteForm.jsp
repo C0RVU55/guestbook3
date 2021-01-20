@@ -6,74 +6,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link href="/mysite0/assets/css/mysite.css" rel="stylesheet" type="text/css">
-<link href="/mysite0/assets/css/guestbook.css" rel="stylesheet" type="text/css">
-
+<title>guest book model 2</title>
 </head>
-
 <body>
-	<div id="wrap">
 
-	<!-- header + navi -->
-	<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
-
-		<div id="aside">
-			<h2>방명록</h2>
-			<ul>
-				<li>일반방명록</li>
-				<li>멀티방명록</li>
-			</ul>
-		</div>
-		<!-- //aside -->
-
-		<div id="content">
-			
-			<div id="content-head">
-            	<h3>일반방명록</h3>
-            	<div id="location">
-            		<ul>
-            			<li>홈</li>
-            			<li>방명록</li>
-            			<li class="last">일반방명록</li>
-            		</ul>
-            	</div>
-                <div class="clear"></div>
-            </div>
-            <!-- //content-head -->
-
-			<div id="guestbook">
-				<form action="/guestbook3/guest/delete" method="get">
-					<table id="guestDelete">
-						<colgroup>
-							<col style="width: 10%;">
-							<col style="width: 40%;">
-							<col style="width: 25%;">
-							<col style="width: 25%;">
-						</colgroup>
-						<tr>
-							<td>비밀번호</td>
-							<td><input type="password" name="password"></td>
-							<td class="text-left"><button type="submit">삭제</button></td>
-							<td><a href="/mysite0/main">[메인으로 돌아가기]</a></td>
-						</tr>
-					</table>
-					<input type='hidden' name="no" value="${param.no}"> 
-			
-				</form>
-				
-			</div>
-			<!-- //guestbook -->
-		</div>
-		<!-- //content  -->
-		<div class="clear"></div>
-		
-		<c:import url="/WEB-INF/views/include/footer.jsp"></c:import>
-		<!-- //footer -->
-
-	</div>
-	<!-- //wrap -->
-
+	<form action="/guestbook3/guest/delete" method="get">
+	
+		비밀번호 <input type="text" name="password"> 
+		<button type="submit">확인</button>
+		<!--코드 no--> <input type="hidden" name="no" value="${param.no}">
+	</form>
+	
+	<a href="/guestbook3/guest/list">메인으로 돌아가기</a>
+	
 </body>
-
 </html>
