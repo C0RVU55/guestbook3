@@ -75,8 +75,8 @@ public class GuestController {
 		GuestDao gDao = new GuestDao();
 		int count = gDao.contentDelete(no, pw);
 		
-		if(count == 0) { //비밀번호 틀렸을 경우 no를 어떻게 넘겨야 될지 모르겠음.
-			return "redirect:/guest/dform";
+		if(count == 0) { //비밀번호 틀렸을 경우 no를 어떻게 넘겨야 될지 모르겠음. --> 일단 비번 틀리든 맞든 list 재요청함.ㄴ
+			return "redirect:/guest/list";
 		}
 		
 		return "redirect:/guest/list";

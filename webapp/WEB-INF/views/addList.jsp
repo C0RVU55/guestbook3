@@ -10,7 +10,7 @@
 </head>
 <body>
 	<!-- *****입력창***** -->
-	<form action="/guestbook3/guest/add" method="get"> 
+	<form action="/guestbook3/guest/add" method="post"> 
 		<table border="1">
 			<tr>
 				<td>이름</td>
