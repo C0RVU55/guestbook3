@@ -21,7 +21,7 @@ public class GuestController {
 	
 	//리스트
 	@RequestMapping(value="/list", method= {RequestMethod.GET, RequestMethod.POST})
-	public String list(Model model) {
+	public String list(Model model) { // <-- dispatcher servlet한테 하는 소리라고 보면 됨
 		System.out.println("list");
 		
 		GuestDao gDao = new GuestDao();
@@ -71,6 +71,8 @@ public class GuestController {
 		return "deleteForm";
 	}
 	
+	//@PathVariable는 파라미터가 아니고 컨트롤러에 갖고 있는 값이기 때문에 model 어트리뷰트해야됨. jsp에서 requestScope.no 또는 no로 꺼내 씀.
+	
 	//삭제
 	@RequestMapping(value="/delete", method= {RequestMethod.GET, RequestMethod.POST})
 	public String delete(@RequestParam("password") String pw, @RequestParam("no") int no) {
@@ -79,7 +81,9 @@ public class GuestController {
 		GuestDao gDao = new GuestDao();
 		int count = gDao.contentDelete(no, pw);
 		
-		if(count == 0) { //비밀번호 틀렸을 경우 no를 어떻게 넘겨야 될지 모르겠음. --> 아래처럼 가능+로그인세션에서 썼던 것처럼 확인용 파라미터 추가
+		//비밀번호 틀렸을 경우 no를 어떻게 넘겨야 될지 모르겠음. --> 아래처럼 가능+로그인세션에서 썼던 것처럼 확인용 파라미터 추가
+		//아님 모델에 넣어도 됨
+		if(count == 0) { 
 			return "redirect:/guest/dform?result=0&no="+no;
 		}
 		
