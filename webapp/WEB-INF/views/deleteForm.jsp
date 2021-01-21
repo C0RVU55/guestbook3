@@ -17,6 +17,10 @@
 		<!--코드 no--> <input type="hidden" name="no" value="${param.no}">
 	</form>
 	
+	<c:if test="${param.result == 0}">
+		비밀번호가 바르지 않습니다.
+	</c:if>
+	<br>
 	<a href="/guestbook3/guest/list">메인으로 돌아가기</a>
 	
 </body>
